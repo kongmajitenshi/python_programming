@@ -30,6 +30,7 @@ print(data)
 # way1 : 전통적인 파이썬 동적 문자열 생성
 data = "%s의 나이는 %d살 입니다." % (name, age)
 print(data)
+print("print %s의 나이는 %d살 입니다." % (name, age)) 
 
 # + 연산자 이용
 # data = "name :" + name + "age :" +  str(age) # age만 정수형이라 오류 나서 str붙여줌
