@@ -1,7 +1,7 @@
 # week05_03_datetime.py
-import datetime
+import datetime # 이 datetime은 '모듈'이다.
 
-now = datetime.datetime.now()
+now = datetime.datetime.now() # 모듈.클래스.메소드
 
 print(now.year) # 2023
 print(now.month) # 09

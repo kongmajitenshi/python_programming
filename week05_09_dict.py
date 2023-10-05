@@ -5,13 +5,13 @@ infos = {
 }
 
 # p.256
-for key, value in infos.items() : # key와 value 모두 뽑아줌
+for key, value in infos.items() : # key와 value 모두 뽑아줌. 선 key, 후 value 뽑아줌.
     print(key, value)
 print()
 
 
 # p.226
-for value in infos.values() :
+for value in infos.values() : # 값만 뽑아줌.
     print(value)
 print()
 

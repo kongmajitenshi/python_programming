@@ -6,7 +6,7 @@ list_of_list = [
     [10, 11],
 ]
 
-for items in list_of_list :
+for items in list_of_list : # foreach > for A in B : 형태로 사용. 
     for item in items :
         print(item, end=" ")
     print()
