@@ -7,6 +7,6 @@ b2 = float(1.1)
 c1 = "1"
 c2 = str("1")
 
-print(type(a1), type(a2), a1 == a2)
-print(type(b1), type(b2), b1 == b2)
-print(type(c1), type(c2), c1 == c2)
+print(type(a1), type(a2), a1 == a2, "\n")
+print(type(b1), type(b2), b1 == b2, "\n")
+print(type(c1), type(c2), c1 == c2, "\n")
