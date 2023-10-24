@@ -55,7 +55,7 @@ print(avg("1234"))
 
 def remove_value(src_list, target) :
     return [ i for i in src_list if i != target ]
-    # src_list = src_list[:]
+    # src_list  = src_list[:]
     # while target in src_list :
     #     src_list.remove(target)
     # return src_list

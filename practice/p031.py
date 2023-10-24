@@ -13,5 +13,5 @@ data1.append([4,5])
 print(data1)
 
 numbers = [1,2,3,4,5,10]
-numbers.remove(6)
+numbers.remove(6) # remove(n) 은 인덱스가 아니라 값에 접근하는 함수.
 print(numbers)
