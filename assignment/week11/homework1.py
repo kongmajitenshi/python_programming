@@ -10,14 +10,16 @@ f = open(full_filename, "a")
 
 while True:
     name = input("이름 입력(바로 Enter 누를 시 종료):")
-    if name == None:
+    if not name:
         break
     kor = input("국어 점수:")
     eng = input("영어 점수:")
-    math = input("수학 점수:")
+    mat = input("수학 점수:")
 
-    f.write(name)
-    f.write(kor)
-    f.write(eng)
-    f.write(math)
+    f.write(name+",")
+    f.write(kor+",")
+    f.write(eng+",")
+    f.write(mat)
+    f.write("\n")
+
 f.close()
