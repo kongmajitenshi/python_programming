@@ -14,6 +14,16 @@ try:
     print(result)
 
     print(list_score[result])
+except ValueError as ex: 
+    # ex의 정보는 주로 로그 파일에 저장한다.
+    # print(type(ex))
+    # print(ex)
+    print("정수만 입력")
+except IndexError as ex: 
+    # ex의 정보는 주로 로그 파일에 저장한다.
+    # print(type(ex))
+    # print(ex)
+    print(f"결과가 {len(list_score)}보다 크면 안돼")
 except Exception as ex: 
     # ex의 정보는 주로 로그 파일에 저장한다.
     print(type(ex))
