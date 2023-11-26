@@ -9,20 +9,25 @@ if os.path.isfile(full_filename):
     scores = []
 
     while True:
-        file = f.readline()
-        if not file:
+        line = f.readline()
+
+        if not line:
             break
 
-        scores_split = file.split(",")
+        line = line.strip()
 
-        if len(scores_split) == 4:
+        split_line = line.split(",")
+
+        if len(split_line) == 4:
             scores_dict = {"name": None, "kor":None, "eng":None, "mat":None}
-            scores_dict['name'] = scores_split[0]
-            scores_dict['kor'] = scores_split[1]
-            scores_dict['eng'] = scores_split[2]
-            scores_dict['mat'] = scores_split[3]
-            scores.append(f"이름:{scores_dict['name']} 국어: 영어: 수학:")
-            # print(scores_dict) # {'name': '최지은', 'kor': '100', 'eng': '100', 'mat': '100'}
-            # print(scores_split) # ['최지은', '100', '100', '100']
+            scores_dict['name'] = split_line[0]
+            scores_dict['kor'] = split_line[1]
+            scores_dict['eng'] = split_line[2]
+            scores_dict['mat'] = split_line[3]
+            scores.append(f"이름:{scores_dict['name']} 국어:{scores_dict['kor']} 영어:{scores_dict['eng']} 수학:{scores_dict['mat']} 평균:{((int(scores_dict['kor'])+int(scores_dict['eng'])+int(scores_dict['mat'])))/(len(scores_dict)-1)}")
+
+    for score in scores:
+        print(score)
+            
             
     f.close()
