@@ -35,8 +35,8 @@ class Car:
         
             
     def __str__(self) -> str :
-        intime = datetime.datetime.strftime(self.intime, "%Y-%m-%d %H:%M:%S")
+        intime = self.intime.strftime("%Y-%m-%d %H:%M:%S")
         if self.outtime == None:
             return f"입차: {intime}, 차령번호: {self.number}, 주차중"
         else:
-            return f"입차: {intime}, 차량번호: {self.number}"
+            return f"입차: {intime}, 출차:{self.outtime.strftime('%Y-%m-%d %H:%M:%S')}, 차량번호: {self.number}"
