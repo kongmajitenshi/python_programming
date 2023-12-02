@@ -51,7 +51,7 @@ def intro(name, grade, *hobbies):
 intro("장은미",1, "디아4", "삼국지", "대항해시대")
 intro("장은미",1)
 
-print("\n")
+print("----------\n")
 
 
 def intro(name, *hobbies, grade): # 가변매개변수 뒤의 매개변수는 기본값을 주는게 좋다. 안그럼 자꾸 키워드매개변수 써야해서 귀찮음.
@@ -61,7 +61,7 @@ def intro(name, *hobbies, grade): # 가변매개변수 뒤의 매개변수는 �
 # intro("kim", "lee", "choi", "song")
 intro("kim", "lee", "choi", grade="song")
 
-print("\n")
+print("----------\n")
 def intro(name, *hobbies, grade="song"): 
     print(name, grade)
     print(hobbies)

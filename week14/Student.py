@@ -58,7 +58,7 @@ if __name__ == "__main__": # 시작 모듈일 때만 실행하도록. import한 
     target_path = "c:\\202344018"
     target_file = "scores.txt"
     target_full_file = os.path.join(target_path, target_file) # 하나로 합쳐줌.
-
+    print(target_full_file)
     students = []
     if os.path.exists(target_full_file):
         with open(target_full_file, "r") as file: # encoding은 통일해줘야함.
@@ -78,18 +78,26 @@ if __name__ == "__main__": # 시작 모듈일 때만 실행하도록. import한 
 
     # (1) 입력할 때마다 파일에 저장, "a"
     # with open(target_full_file, "a") as file:
-    #     number = input("학번:")
-    #     name = input("이름:")
-    #     kor = input("국어:")
-    #     math = input("수학:")
-    #     eng = input("영어:")
-    #     student_info = Student(number,name,kor,math,eng)
-    #     file.write(student_info.make_record())
+    #     while True:         
+        #     number = input("학번:")
+        #     name = input("이름:")
+        #     kor = input("국어:")
+        #     math = input("수학:")
+        #     eng = input("영어:")
+
+        #     student_info = Student(number,name,kor,math,eng)
+        #     file.write(student_info.make_record())
+
+        #     yesorno = input("계속?")
+        #     if yesorno.upper().strip() == "Y":
+            #     continue
+            # else:
+            #     break
         
     # (2) 입력 모두 받고 새로 받은 내용만 한 번에 저장, "a"
     with open(target_full_file, "a") as file:
+        student_info_list = []
         while True:
-            student_info_list = []
             
             number = input("학번:").strip()
             name = input("이름:").strip()
@@ -99,11 +107,13 @@ if __name__ == "__main__": # 시작 모듈일 때만 실행하도록. import한 
 
             student_info = Student(number,name,kor,math,eng)
             student_info_list.append(student_info)
+
             yesorno = input("계속 할래?")
             if yesorno.upper().strip() == "Y":
                 continue
             else:
-                file.write(student_info.make_record())
+                for student_info in student_info_list:
+                    file.write(student_info.make_record())
                 break
     # (3) 기존+신규 모두 새로 저장, "w"
     # (1), (2), (3) 을 모두 만들어보세요~ 3 동작 모두 while문으로 돌리면 됨.
