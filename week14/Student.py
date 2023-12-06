@@ -15,7 +15,7 @@ class Student:
         self.kor = kor
         self.math = math
         self.eng = eng
-        if regdate == None: # 지금 날짜가 등록 날짜인 경우
+        if regdate == None: # 지금 날짜가 등록 날짜인 경우(따로 지정 안해줄 시)
             day = random.randrange(-2, 3) # 시작,끝 값 주면 그 사이에 알아서 랜덤값. -2<=random<3
             self.regdate = dt.datetime.now() + dt.timedelta(days=day)
         else:
@@ -76,49 +76,94 @@ if __name__ == "__main__": # 시작 모듈일 때만 실행하도록. import한 
                     students.append(stu) # 얘는 , 으로 들어가지않나?
     # 이제 어카지? 코드가 아니라 키보드로 입력을 받으면 되겠다!
 
-    # (1) 입력할 때마다 파일에 저장, "a"
+    # # (1) 입력할 때마다 파일에 저장, "a"
     # with open(target_full_file, "a") as file:
     #     while True:         
-        #     number = input("학번:")
-        #     name = input("이름:")
-        #     kor = input("국어:")
-        #     math = input("수학:")
-        #     eng = input("영어:")
+    #         number = input("학번:")
+    #         name = input("이름:")
+    #         kor = input("국어:")
+    #         math = input("수학:")
+    #         eng = input("영어:")
 
-        #     student_info = Student(number,name,kor,math,eng)
-        #     file.write(student_info.make_record())
+    #         student_info = Student(number,name,kor,math,eng)
+    #         file.write(student_info.make_record())
 
-        #     yesorno = input("계속?")
-        #     if yesorno.upper().strip() == "Y":
-            #     continue
-            # else:
-            #     break
+    #         yesorno = input("계속?")
+    #         if yesorno.upper().strip() == "Y":
+    #             continue
+    #         else:
+    #             break
         
     # (2) 입력 모두 받고 새로 받은 내용만 한 번에 저장, "a"
-    with open(target_full_file, "a") as file:
-        student_info_list = []
-        while True:
+    # with open(target_full_file, "a") as file:
+    #     student_info_list = []
+    #     while True:
             
+    #         number = input("학번:").strip()
+    #         name = input("이름:").strip()
+    #         kor = int(input("국어:"))
+    #         math = int(input("수학:"))
+    #         eng = int(input("영어:"))
+
+    #         student_info = Student(number,name,kor,math,eng)
+    #         student_info_list.append(student_info)
+
+    #         yesorno = input("계속 할래?")
+    #         if yesorno.upper().strip() == "Y":
+    #             continue
+    #         else:
+    #             for student_info in student_info_list:
+    #                 file.write(student_info.make_record())
+    #             break
+    # (3) 기존+신규 모두 새로 저장, "w"
+    # origin_file = open(target_full_file, "r")
+    # origin_file_str = origin_file.read()
+    # origin_file.close()
+    # file.write(origin_file_str)
+        while True:
             number = input("학번:").strip()
             name = input("이름:").strip()
             kor = int(input("국어:"))
             math = int(input("수학:"))
             eng = int(input("영어:"))
-
-            student_info = Student(number,name,kor,math,eng)
-            student_info_list.append(student_info)
-
+            student_info = Student(number, name, kor, math, eng)
+            students.append(student_info)
             yesorno = input("계속 할래?")
             if yesorno.upper().strip() == "Y":
                 continue
             else:
-                for student_info in student_info_list:
-                    file.write(student_info.make_record())
                 break
-    # (3) 기존+신규 모두 새로 저장, "w"
+            
+    with open(target_full_file, "w") as file:
+        while True:
+            # if file != None:
+            #     origin_file = open(target_full_file, "r")
+            #     origin_student_list = []
+            #     for line in origin_file:
+            #         line = line.strip()
+            #         origin = line.split("|")
+            #         if len(origin) == 6:
+            #             origin_number = origin[0]
+            #             origin_name = origin[1]
+            #             origin_kor = origin[2]
+            #             origin_math = origin[3]
+            #             origin_eng = origin[4]
+            #             origin_date = dt.datetime.strptime(origin[5], Student.time_format)
+            #             origin_student = Student(origin_number, origin_name, origin_kor, origin_math, origin_eng)
+            #             file.write(origin_student.make_record())
+            #     origin_file.close()
+            #     origin_file_str = origin_file.read()
+            #     file.write(origin_file_str)
+            #     origin_file.close()
+            #     origin_file = origin_file.strip()
+            #     origin_file_list = origin_file.split("|")
+            for i in range(len(students)):
+                # print(students[i])
+                file.write(students[i].make_record())
+        
+
     # (1), (2), (3) 을 모두 만들어보세요~ 3 동작 모두 while문으로 돌리면 됨.
     
-
     # students = [
     #     Student(12345,"김인하",100,98,80),
     #     Student(12346,"이인하",100,98,80),
