@@ -126,40 +126,22 @@ if __name__ == "__main__": # 시작 모듈일 때만 실행하도록. import한 
             kor = int(input("국어:"))
             math = int(input("수학:"))
             eng = int(input("영어:"))
+
             student_info = Student(number, name, kor, math, eng)
             students.append(student_info)
+
             yesorno = input("계속 할래?")
             if yesorno.upper().strip() == "Y":
                 continue
             else:
+                with open(target_full_file, "w") as file:
+                    for i in range(len(students)):
+                        file.write(students[i].make_record())
                 break
-            
-    with open(target_full_file, "w") as file:
-        while True:
-            # if file != None:
-            #     origin_file = open(target_full_file, "r")
-            #     origin_student_list = []
-            #     for line in origin_file:
-            #         line = line.strip()
-            #         origin = line.split("|")
-            #         if len(origin) == 6:
-            #             origin_number = origin[0]
-            #             origin_name = origin[1]
-            #             origin_kor = origin[2]
-            #             origin_math = origin[3]
-            #             origin_eng = origin[4]
-            #             origin_date = dt.datetime.strptime(origin[5], Student.time_format)
-            #             origin_student = Student(origin_number, origin_name, origin_kor, origin_math, origin_eng)
-            #             file.write(origin_student.make_record())
-            #     origin_file.close()
-            #     origin_file_str = origin_file.read()
-            #     file.write(origin_file_str)
-            #     origin_file.close()
-            #     origin_file = origin_file.strip()
-            #     origin_file_list = origin_file.split("|")
-            for i in range(len(students)):
-                # print(students[i])
-                file.write(students[i].make_record())
+
+    # with open(target_full_file, "w") as file:
+    #         for i in range(len(students)):
+    #             file.write(students[i].make_record())
         
 
     # (1), (2), (3) 을 모두 만들어보세요~ 3 동작 모두 while문으로 돌리면 됨.

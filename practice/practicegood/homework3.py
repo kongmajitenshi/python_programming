@@ -11,10 +11,11 @@ if os.path.isfile(full_filename):
     # print(f"타입{type(scores)}")
     while True:
         score = f.readline()
-        if score == None:
+        if not score:
             break
 
-        score = score.split(",")
+        score = score.strip().split(",")
+        
         if len(score) == 4:
             name = score[0]
             kor = score[1]
@@ -22,8 +23,10 @@ if os.path.isfile(full_filename):
             math = score[3]
             scores.append(Score(name, kor, eng, math)) # 리스트의 0번 인덱스에 추가
             # scores = Score(name, kor, eng, math) # scores를 Score타입으로 바꿔버림.
-        print(scores[0])
+        # print(score)
         # print(f"타입{type(scores)}")
-        break
-
+        # if count >= len(f.readlines()):
     f.close()
+
+    for score in scores:
+        print(score)
